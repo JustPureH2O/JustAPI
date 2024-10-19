@@ -54936,6 +54936,7 @@ const Player = require('./player.mjs');
 const Query = require('./constants.mjs');
 
 const param = new URLSearchParams(window.location.search);
+
 if (param.get('appreciation') === null) {
     const info = document.getElementById("info");
     info.innerHTML = `Powered by <i>BA Memory</i> by <b>JustPure<span style="color:#0080C0">H</span><sub style="color:#FF9800">2</sub><span style="color:#0080C0">O</span></b></footer>`;
@@ -54998,9 +54999,9 @@ class Player {
 
     getCanvasArguments() {
         let ret = {scale: 1, scaleX: 1, scaleY: 1, x: 0, y: 0};
-        let factor = Math.max(1, Math.min(this.model.spineData.width / (window.screen.availWidth * window.devicePixelRatio), this.model.spineData.height / (window.screen.availHeight * window.devicePixelRatio)));
-        ret['scaleX'] = this.app.renderer.width * factor / this.model.spineData.width;
-        ret['scaleY'] = this.app.renderer.height * factor / this.model.spineData.height;
+        // 经验参数，理论上可以二分出更佳选项
+        ret['scaleX'] = this.app.renderer.width / 3200;
+        ret['scaleY'] = this.app.renderer.height / 1760;
         ret['scale'] = Math.max(ret['scaleX'], ret['scaleY']);
         ret['x'] = this.app.renderer.width / 2;
         ret['y'] = this.app.renderer.height;
