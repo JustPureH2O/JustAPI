@@ -54999,9 +54999,9 @@ class Player {
 
     getCanvasArguments() {
         let ret = {scale: 1, scaleX: 1, scaleY: 1, x: 0, y: 0};
-        // 经验参数，理论上可以二分出更佳选项
+        // 经验参数，理论上可以二分出更佳选项，总之比值等于 0.625 (1920 : 3072)
         ret['scaleX'] = this.app.renderer.width / 3200;
-        ret['scaleY'] = this.app.renderer.height / 1760;
+        ret['scaleY'] = this.app.renderer.height / 2000;
         ret['scale'] = Math.max(ret['scaleX'], ret['scaleY']);
         ret['x'] = this.app.renderer.width / 2;
         ret['y'] = this.app.renderer.height;
