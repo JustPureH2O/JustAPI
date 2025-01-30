@@ -262,7 +262,7 @@ const CharacterTag = {
     KANNA: {user: "kanna", name: "CH0170", cn: "尾刃叶渚"},
     KANNA_SWIMSUIT: {user: "kanna_swimsuit", name: "CH0260", cn: "尾刃叶渚（泳装）"},
     // Community Safety Bureau 生活安全局
-    KIRINO: {user: "kirino", name: "Kirino", cn: "中务桐乃"},
+    KIRINO: {user: "kirino", name: "kirino", cn: "中务桐乃"},
     KIRINO_SWIMSUIT: {user: "kirino_swimsuit", name: "CH0262", cn: "中务桐乃（泳装）"},
     FUBUKI: {user: "fubuki", name: "CH0141", cn: "合欢垣吹雪"},
     FUBUKI_SWIMSUIT: {user: "fubuki_swimsuit", name: "CH0261", cn: "合欢垣吹雪（泳装）"},
@@ -324,24 +324,20 @@ function changeHandler() {
         for (let ch in CharacterTag) {
             if (ind + 1 === selector.selectedIndex) {
                 let frame = document.createElement('iframe');
-                frame.id = 'box';
+
+                frame.id = 'container-box';
                 frame.src = `https://api.justpureh2o.cn/v1/ba-memory/?name=${CharacterTag[ch].user}&animation=${animation.options[0].value}${repeat ? '' : '&noRepeat'}${exp ? '&export' : ''}${appreciation ? '&appreciation' : ''}`;
-                frame.onload = function () {
-                    let observer = new MutationObserver(function (mutations) {
-                        for (let m of mutations) {
-                            if (m.type === 'characterData') {
-                                let span = frame.contentWindow.document.getElementById('json');
-                                let json = JSON.parse(span.textContent);
-                                for (let item of json.animations) {
-                                    if (item.toString() === 'start_idle_01') continue;
-                                    animation.insertAdjacentHTML("beforeend", `<option value="${item.toString()}">${item.toString()}</option>`);
-                                }
-                            }
-                        }
-                    });
-                    observer.observe(frame.contentWindow.document.body, { characterData: true });
-                }
                 client.appendChild(frame);
+                document.querySelector('#container-box').contentWindow.addEventListener('message', (e) => {
+                    console.log(e);
+                    if (!e.origin.includes('api.justpureh2o.cn')) return;
+                    console.log('Received');
+                    let data = JSON.parse(e.data);
+                    for (let v of data.animations) {
+                        if (v.toString() === 'start_idle_01') continue;
+                        animation.insertAdjacentHTML("beforeend", `<option value="${v.toString()}">${v.toString()}</option>`)
+                    }
+                });
                 frame.style.position = 'absolute';
                 frame.style.width = '100%';
                 frame.style.height = '100%';
