@@ -327,13 +327,18 @@ function changeHandler() {
                 let frame = document.getElementById('box');
                 frame.onload = function () {
                     let span = frame.contentWindow.document.getElementById('json');
-                    span.addEventListener("change", () => {
-                        let json = JSON.parse(span.textContent);
-                        for (let item of json.animations) {
-                            if (item.toString() === 'start_idle_01') continue;
-                            animation.insertAdjacentHTML("beforeend", `<option value="${item.toString()}">${item.toString()}</option>`)
+                    let observer = new MutationObserver(function (mutations) {
+                        for (let m of mutations) {
+                            if (m.type === 'characterData') {
+                                let json = JSON.parse(span.textContent);
+                                for (let item of json.animations) {
+                                    if (item.toString() === 'start_idle_01') continue;
+                                    animation.insertAdjacentHTML("beforeend", `<option value="${item.toString()}">${item.toString()}</option>`);
+                                }
+                            }
                         }
                     });
+                    observer.observe(frame.contentWindow.document.body, { characterData: true });
                 }
                 break;
             }
