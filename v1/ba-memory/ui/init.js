@@ -326,12 +326,11 @@ function changeHandler() {
                 let frame = document.createElement('iframe');
                 frame.id = 'box';
                 frame.src = `https://api.justpureh2o.cn/v1/ba-memory/?name=${CharacterTag[ch].user}&animation=${animation.options[0].value}${repeat ? '' : '&noRepeat'}${exp ? '&export' : ''}${appreciation ? '&appreciation' : ''}`;
-                frame.style = {position: 'absolute', width: '100%', height: '100%'};
                 frame.onload = function () {
-                    let span = frame.contentWindow.document.getElementById('json');
                     let observer = new MutationObserver(function (mutations) {
                         for (let m of mutations) {
                             if (m.type === 'characterData') {
+                                let span = frame.contentWindow.document.getElementById('json');
                                 let json = JSON.parse(span.textContent);
                                 for (let item of json.animations) {
                                     if (item.toString() === 'start_idle_01') continue;
@@ -343,6 +342,9 @@ function changeHandler() {
                     observer.observe(frame.contentWindow.document.body, { characterData: true });
                 }
                 client.appendChild(frame);
+                frame.style.position = 'absolute';
+                frame.style.width = '100%';
+                frame.style.height = '100%';
                 break;
             }
             ind++;
