@@ -4,7 +4,11 @@ const CharacterTag = {
     SHIROKO_SWIMSUIT: {user: "shiroko_swimsuit", name: "CH0188", cn: "砂狼白子（泳装）"},
     SHIROKO_RIDINGSUIT: {user: "shiroko_ridingsuit", name: "Shiroko_ridingsuit", cn: "砂狼白子（骑行）"},
     SHIROKO_TERROR: {user: "shiroko_terror", name: "CH0263", cn: "砂狼白子（恐怖）"},
-    SHIROKO_TERROR_LIGHT_WEAKENED: {user: "shiroko_terror_home_fix", name: "CH0263_home_fix", cn: "砂狼白子（恐怖）（光线减弱）"},
+    SHIROKO_TERROR_LIGHT_WEAKENED: {
+        user: "shiroko_terror_home_fix",
+        name: "CH0263_home_fix",
+        cn: "砂狼白子（恐怖）（光线减弱）"
+    },
     SHIROKO_BD: {user: "shiroko_bd", name: "LobbyShiroko_multi", strict: true, V4: true, cn: "砂狼白子（特典）"},
     HOSHINO: {user: "hoshino", name: "Hoshino", cn: "小鸟游星野"},
     HOSHINO_SWIMSUIT: {user: "hoshino_swimsuit", name: "Hoshino_swimsuit", cn: "小鸟游星野（泳装）"},
@@ -28,9 +32,21 @@ const CharacterTag = {
     KAYOKO: {user: "kayoko", name: "Kayoko", cn: "鬼方佳代子"},
     KAYOKO_NEWYEAR: {user: "kayoko_newyear", name: "CH0086", cn: "鬼方佳代子（正月）"},
     KAYOKO_DRESS: {user: "kayoko_dress", name: "CH0239", cn: "鬼方佳代子（礼服）"},
-    KAYOKO_DRESS_EXPOSURE_FIX: {user: "kayoko_dress_home_fix", name: "CH0239_home_fix", cn: "鬼方佳代子（礼服）（光线修复）"},
-    KAYOKO_DRESS_LIGHT_WEAKENED: {user: "kayoko_dress_home_dark", name: "CH0239_home_dark", cn: "鬼方佳代子（礼服）（光线减弱）"},
-    KAYOKO_DRESS_LIGHT_REMOVED: {user: "kayoko_dress_home_deep", name: "CH0239_home_deep", cn: "鬼方佳代子（礼服）（无光线）"},
+    KAYOKO_DRESS_EXPOSURE_FIX: {
+        user: "kayoko_dress_home_fix",
+        name: "CH0239_home_fix",
+        cn: "鬼方佳代子（礼服）（光线修复）"
+    },
+    KAYOKO_DRESS_LIGHT_WEAKENED: {
+        user: "kayoko_dress_home_dark",
+        name: "CH0239_home_dark",
+        cn: "鬼方佳代子（礼服）（光线减弱）"
+    },
+    KAYOKO_DRESS_LIGHT_REMOVED: {
+        user: "kayoko_dress_home_deep",
+        name: "CH0239_home_deep",
+        cn: "鬼方佳代子（礼服）（无光线）"
+    },
     MUTSUKI: {user: "mutsuki", name: "Mutsuki", cn: "浅黄睦月"},
     MUTSUKI_NEWYEAR: {user: "mutsuki_newyear", name: "mutsuki_newyear", cn: "浅黄睦月（正月）"},
     HARUKA: {user: "haruka", name: "Haruka", cn: "伊草春香"},
@@ -250,17 +266,29 @@ const CharacterTag = {
     KIRINO_SWIMSUIT: {user: "kirino_swimsuit", name: "CH0262", cn: "中务桐乃（泳装）"},
     FUBUKI: {user: "fubuki", name: "CH0141", cn: "合欢垣吹雪"},
     FUBUKI_SWIMSUIT: {user: "fubuki_swimsuit", name: "CH0261", cn: "合欢垣吹雪（泳装）"},
-    FUBUKI_SWIMSUIT_LIGHT_WEAKENED: {user: "fubuki_swimsuit_home_fix", name: "CH0261_home_fix2", cn: "合欢垣吹雪（泳装）（光线修复）"},
+    FUBUKI_SWIMSUIT_LIGHT_WEAKENED: {
+        user: "fubuki_swimsuit_home_fix",
+        name: "CH0261_home_fix2",
+        cn: "合欢垣吹雪（泳装）（光线修复）"
+    },
     // ---------------------- Arius ----------------------- 阿里乌斯
     // 白洲梓划在圣三一下
     ATSUKO: {user: "atsuko", name: "Atsuko", cn: "秤亚津子"},
     ATSUKO_SWIMSUIT: {user: "atsuko_swimsuit", name: "CH0267", cn: "秤亚津子（泳装）"},
-    ATSUKO_SWIMSUIT_LIGHT_WEAKENED: {user: "atsuko_swimsuit_home_fix", name: "CH0267_home_fix", cn: "秤亚津子（泳装）（光线修复）"},
+    ATSUKO_SWIMSUIT_LIGHT_WEAKENED: {
+        user: "atsuko_swimsuit_home_fix",
+        name: "CH0267_home_fix",
+        cn: "秤亚津子（泳装）（光线修复）"
+    },
     SAORI: {user: "saori", name: "Saori", cn: "锭前纱织"},
     SAORI_SWIMSUIT: {user: "saori_swimsuit", name: "CH0266", cn: "锭前纱织（泳装）"},
     HIYORI: {user: "hiyori", name: "Hiyori", cn: "槌永日和"},
     HIYORI_SWIMSUIT: {user: "hiyori_swimsuit", name: "CH0269", cn: "槌永日和（泳装）"},
-    HIYORI_SWIMSUIT_LIGHT_WEAKENED: {user: "hiyori_swimsuit_home_fix", name: "CH0269_home_fix", cn: "槌永日和（泳装）（光线修复）"},
+    HIYORI_SWIMSUIT_LIGHT_WEAKENED: {
+        user: "hiyori_swimsuit_home_fix",
+        name: "CH0269_home_fix",
+        cn: "槌永日和（泳装）（光线修复）"
+    },
     MISAKI: {user: "misaki", name: "Misaki", cn: "戒野美咲"},
     // ----------------------- SRT -------------------------
     // RABBIT Platoon RABBIT小队
@@ -283,17 +311,30 @@ const CharacterTag = {
 
 function changeHandler() {
     let selector = document.getElementById('model-selector');
-    let animation = document.getElementById('animation').options[0].value;
+    let animation = document.getElementById('animation');
     let client = document.getElementById('client');
     let repeat = document.getElementById('repeat').checked;
     let exp = document.getElementById('export').checked;
     let appreciation = document.getElementById('appreciation').checked;
     let ind = 0;
     while (client.hasChildNodes()) client.removeChild(client.firstChild);
+    while (animation.hasChildNodes()) animation.removeChild(animation.firstChild);
+    animation.insertAdjacentHTML("beforeend", `<option value="start_idle_01">start_idle_01</option>`);
     if (selector.selectedIndex > 0) {
         for (let ch in CharacterTag) {
             if (ind + 1 === selector.selectedIndex) {
-                client.insertAdjacentHTML("beforeend", `<iframe id="box" src="https://api.justpureh2o.cn/v1/ba-memory/?name=${CharacterTag[ch].user}&animation=${animation}${repeat ? '' : '&noRepeat'}${exp ? '&export' : ''}${appreciation ? '&appreciation' : ''}" style="position: absolute; width: 100%; height: 100%"></iframe>`)
+                client.insertAdjacentHTML("beforeend", `<iframe id="box" src="https://api.justpureh2o.cn/v1/ba-memory/?name=${CharacterTag[ch].user}&animation=${animation.options[0].value}${repeat ? '' : '&noRepeat'}${exp ? '&export' : ''}${appreciation ? '&appreciation' : ''}" style="position: absolute; width: 100%; height: 100%"></iframe>`);
+                let frame = document.getElementById('box');
+                frame.onload = function () {
+                    let span = frame.contentWindow.document.getElementById('json');
+                    span.addEventListener("change", () => {
+                        let json = JSON.parse(span.textContent);
+                        for (let item of json.animations) {
+                            if (item.toString() === 'start_idle_01') continue;
+                            animation.insertAdjacentHTML("beforeend", `<option value="${item.toString()}">${item.toString()}</option>`)
+                        }
+                    });
+                }
                 break;
             }
             ind++;
@@ -302,16 +343,6 @@ function changeHandler() {
 }
 
 (function () {
-    console.log('A');
-    let xhr = new XMLHttpRequest();
-    xhr.open('GET', 'https://api.justpureh2o.cn/v1/ba-memory/?name=seia', true);
-    xhr.onload = function () {
-        if (xhr.status === 200) {
-            const data = JSON.parse(xhr.responseText);
-            console.log(data);
-        }
-    };
-    console.log('B');
     let selector = document.getElementById('model-selector');
     let animation = document.getElementById('animation');
     let checkbox = document.getElementsByName('appendixes');
