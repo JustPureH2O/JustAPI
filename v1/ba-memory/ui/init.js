@@ -323,8 +323,10 @@ function changeHandler() {
     if (selector.selectedIndex > 0) {
         for (let ch in CharacterTag) {
             if (ind + 1 === selector.selectedIndex) {
-                client.insertAdjacentHTML("beforeend", `<iframe id="box" src="https://api.justpureh2o.cn/v1/ba-memory/?name=${CharacterTag[ch].user}&animation=${animation.options[0].value}${repeat ? '' : '&noRepeat'}${exp ? '&export' : ''}${appreciation ? '&appreciation' : ''}" style="position: absolute; width: 100%; height: 100%"></iframe>`);
-                let frame = document.getElementById('box');
+                let frame = document.createElement('iframe');
+                frame.id = 'box';
+                frame.src = `https://api.justpureh2o.cn/v1/ba-memory/?name=${CharacterTag[ch].user}&animation=${animation.options[0].value}${repeat ? '' : '&noRepeat'}${exp ? '&export' : ''}${appreciation ? '&appreciation' : ''}`;
+                frame.style = {position: 'absolute', width: '100%', height: '100%'};
                 frame.onload = function () {
                     let span = frame.contentWindow.document.getElementById('json');
                     let observer = new MutationObserver(function (mutations) {
@@ -340,6 +342,7 @@ function changeHandler() {
                     });
                     observer.observe(frame.contentWindow.document.body, { characterData: true });
                 }
+                client.appendChild(frame);
                 break;
             }
             ind++;
