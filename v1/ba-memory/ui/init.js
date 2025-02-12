@@ -309,7 +309,7 @@ const CharacterTag = {
     RUIKO: {user: "ruiko", name: "CH0996", cn: "[联动] 佐天泪子"},
 };
 
-function changeHandler() {
+function changeHandler(changeAnimation = false) {
     let selector = document.getElementById('model-selector');
     let animation = document.getElementById('animation');
     let client = document.getElementById('client');
@@ -318,8 +318,10 @@ function changeHandler() {
     let appreciation = document.getElementById('appreciation').checked;
     let ind = 0;
     while (client.hasChildNodes()) client.removeChild(client.firstChild);
-    while (animation.hasChildNodes()) animation.removeChild(animation.firstChild);
-    animation.insertAdjacentHTML("beforeend", `<option value="start_idle_01">start_idle_01</option>`);
+    if (!changeAnimation) {
+        while (animation.hasChildNodes()) animation.removeChild(animation.firstChild);
+        animation.insertAdjacentHTML("beforeend", `<option value="start_idle_01">start_idle_01</option>`);
+    }
     if (selector.selectedIndex > 0) {
         for (let ch in CharacterTag) {
             if (ind + 1 === selector.selectedIndex) {
@@ -350,12 +352,16 @@ function changeHandler() {
 
 (function () {
     let selector = document.getElementById('model-selector');
-    let animation = document.getElementById('animation');
+    let parent = document.getElementById('parent');
     let checkbox = document.getElementsByName('appendixes');
     for (let ch in CharacterTag) {
         selector.insertAdjacentHTML("beforeend", `<option value="${CharacterTag[ch].name}">${CharacterTag[ch].user} / ${CharacterTag[ch].cn}</option>`);
     }
     selector.addEventListener("change", changeHandler);
-    animation.addEventListener("change", changeHandler);
+    parent.addEventListener("change", (event) => {
+        if (event.target.id === 'animation') {
+            changeHandler(true);
+        }
+    });
     for (let o of checkbox) o.addEventListener('change', changeHandler);
 })();
