@@ -309,7 +309,8 @@ const CharacterTag = {
     RUIKO: {user: "ruiko", name: "CH0996", cn: "[联动] 佐天泪子"},
 };
 
-function changeHandler(changeAnimation = false) {
+function changeHandler(a, isAnimation = false) {
+    console.log(isAnimation);
     let selector = document.getElementById('model-selector');
     let animation = document.getElementById('animation');
     let client = document.getElementById('client');
@@ -318,7 +319,7 @@ function changeHandler(changeAnimation = false) {
     let appreciation = document.getElementById('appreciation').checked;
     let ind = 0;
     while (client.hasChildNodes()) client.removeChild(client.firstChild);
-    if (!changeAnimation) {
+    if (!isAnimation) {
         while (animation.hasChildNodes()) animation.removeChild(animation.firstChild);
         animation.insertAdjacentHTML("beforeend", `<option value="start_idle_01">start_idle_01</option>`);
     }
@@ -330,16 +331,14 @@ function changeHandler(changeAnimation = false) {
                 frame.id = 'container-box';
                 frame.src = `https://api.justpureh2o.cn/v1/ba-memory/?name=${CharacterTag[ch].user}&animation=${animation.options[animation.selectedIndex].value}${repeat ? '' : '&noRepeat'}${exp ? '&export' : ''}${appreciation ? '&appreciation' : ''}`;
                 client.appendChild(frame);
-                if (!changeAnimation) {
-                    document.querySelector('#container-box').contentWindow.addEventListener('message', (e) => {
-                        if (!e.origin.includes('api.justpureh2o.cn')) return;
-                        let data = JSON.parse(e.data);
-                        for (let v of data.animations) {
-                            if (v.toString() === 'start_idle_01') continue;
-                            animation.insertAdjacentHTML("beforeend", `<option value="${v.toString()}">${v.toString()}</option>`)
-                        }
-                    });
-                }
+                document.querySelector('#container-box').contentWindow.addEventListener('message', (e) => {
+                    if (!e.origin.includes('api.justpureh2o.cn')) return;
+                    let data = JSON.parse(e.data);
+                    for (let v of data.animations) {
+                        if (v.toString() === 'start_idle_01') continue;
+                        animation.insertAdjacentHTML("beforeend", `<option value="${v.toString()}">${v.toString()}</option>`)
+                    }
+                });
                 frame.style.position = 'absolute';
                 frame.style.width = '100%';
                 frame.style.height = '100%';
@@ -357,11 +356,11 @@ function changeHandler(changeAnimation = false) {
     for (let ch in CharacterTag) {
         selector.insertAdjacentHTML("beforeend", `<option value="${CharacterTag[ch].name}">${CharacterTag[ch].user} / ${CharacterTag[ch].cn}</option>`);
     }
-    selector.addEventListener("change", changeHandler);
+    selector.addEventListener('change', function () { changeHandler(false); });
     parent.addEventListener("change", (event) => {
         if (event.target.id === 'animation') {
-            changeHandler(true);
+            changeHandler(1, true);
         }
     });
-    for (let o of checkbox) o.addEventListener('change', changeHandler);
+    for (let o of checkbox) o.addEventListener('change', function () { changeHandler(true); });
 })();
