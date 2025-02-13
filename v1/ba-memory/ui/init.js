@@ -331,14 +331,16 @@ function changeHandler(a, isAnimation = false) {
                 frame.id = 'container-box';
                 frame.src = `https://api.justpureh2o.cn/v1/ba-memory/?name=${CharacterTag[ch].user}&animation=${animation.options[animation.selectedIndex].value}${repeat ? '' : '&noRepeat'}${exp ? '&export' : ''}${appreciation ? '&appreciation' : ''}`;
                 client.appendChild(frame);
-                document.querySelector('#container-box').contentWindow.addEventListener('message', (e) => {
-                    if (!e.origin.includes('api.justpureh2o.cn')) return;
-                    let data = JSON.parse(e.data);
-                    for (let v of data.animations) {
-                        if (v.toString() === 'start_idle_01') continue;
-                        animation.insertAdjacentHTML("beforeend", `<option value="${v.toString()}">${v.toString()}</option>`)
-                    }
-                });
+                if (!isAnimation) {
+                    document.querySelector('#container-box').contentWindow.addEventListener('message', (e) => {
+                        if (!e.origin.includes('api.justpureh2o.cn')) return;
+                        let data = JSON.parse(e.data);
+                        for (let v of data.animations) {
+                            if (v.toString() === 'start_idle_01') continue;
+                            animation.insertAdjacentHTML("beforeend", `<option value="${v.toString()}">${v.toString()}</option>`)
+                        }
+                    });
+                }
                 frame.style.position = 'absolute';
                 frame.style.width = '100%';
                 frame.style.height = '100%';
