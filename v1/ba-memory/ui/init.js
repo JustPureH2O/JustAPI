@@ -55,6 +55,7 @@ const CharacterTag = {
     FUUKA: {user: "fuuka", name: "Fuuka", cn: "爱清枫香"},
     FUUKA_NEWYEAR: {user: "fuuka_newyear", name: "CH0177", cn: "爱清枫香（正月）"},
     JURI: {user: "juri", name: "Juri", cn: "牛牧茱莉"},
+    JURI_PART_TIMER: {user: "juri_part_timer", name: "CH0286", cn: "牛牧茱莉（打工）"}, // IMPL Implemented on 2025/02/26
     // Gourmet Research Society 美食研究会
     JUNKO: {user: "junko", name: "Zunko", cn: "赤司淳子"},
     JUNKO_NEWYEAR: {user: "junko_newyear", name: "CH0192", cn: "赤司淳子（正月）"},
@@ -88,6 +89,7 @@ const CharacterTag = {
     MEGU: {user: "megu", name: "CH0088", cn: "下仓惠"},
     // Emergency Medicine Club 救急医学部
     SENA: {user: "sena", name: "CH0081", cn: "冰室濑名"},
+    SENA_CASUAL: {user: "sena_casual", name: "CH0082", cn: "冰室濑名（私服）"}, // IMPL Implemented on 2025/02/26
     // Sparkle Club 亮闪闪部
     KIRARA: {user: "kirara", name: "Kirara", cn: "夜樱绮良良"},
     // --------------- Trinity ----------------- 圣三一
@@ -155,6 +157,7 @@ const CharacterTag = {
     // Veritas 真理部
     CHIHIRO: {user: "chihiro", name: "CH0160", cn: "各务千寻"},
     MAKI: {user: "maki", name: "Maki", cn: "小涂真纪"},
+    MAKI_CAMP: {user: "maki_camp", name: "CH0235", cn: "小涂真纪（露营）"}, // IMPL Implemented on 2025/02/12
     HARE: {user: "hare", name: "Hare", cn: "小钩晴"},
     HARE_CAMP: {user: "hare_camp", name: "CH0233", cn: "小钩晴（露营）"},
     KOTAMA: {user: "kotama", name: "Kotama", cn: "音濑小玉"},
