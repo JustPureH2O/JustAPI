@@ -64,7 +64,7 @@ const CharacterTag = {
     HARUNA_GYM: {user: "haruna_gym", name: "CH0193", cn: "黑馆晴奈（体操服）"},
     IZUMI: {user: "izumi", name: "Izumi", cn: "狮子堂泉"},
     IZUMI_SWIMSUIT: {user: "izumi_swimsuit", name: "Izumi_swimsuit", cn: "狮子堂泉（泳装）"},
-    IZUMI_NEWYEAR: {user: "izumi_newyear", name: "CH0197", cn: "狮子堂泉（正月）"},
+    IZUMI_NEWYEAR: {user: "izumi_newyear", name: "CH0197", cn: "狮子堂泉（正月）"}, // IMPL Implemented on 2025/03/19
     AKARI: {user: "akari", name: "akari", cn: "鳄渊明里"},
     AKARI_BG: {user: "akari_bg", name: "akari_bg", strict: true},
     AKARI_SCENE: {user: "akari_scene", name: "akari_scene", strict: true}, // TODO Deprecate this
@@ -188,8 +188,8 @@ const CharacterTag = {
     KOTORI_CHEERLEADER: {user: "kotori_cheerleader", name: "CH0185", cn: "丰见小鸟（应援团）"},
     // Gym Training Department 体育锻炼部
     SUMIRE: {user: "sumire", name: "Sumire", cn: "乙花堇"},
-    SUMIRE_PART_TIMER: {user: "sumire_part_timer", name: "CH0287", cn: "乙花堇（打工）"},
-    REI: {user: "rei", name: "CH0245", cn: "野正丽"},
+    SUMIRE_PART_TIMER: {user: "sumire_part_timer", name: "CH0287", cn: "乙花堇（打工）"}, // IMPL Implemented on 2025/03/26
+    REI: {user: "rei", name: "CH0245", cn: "野正丽"}, // IMPL Implemented on 2025/03/26
     // Game Development Department 游戏开发部
     MIDORI: {user: "midori", name: "Midori", cn: "才羽绿"},
     MIDORI_MAID: {user: "midori_maid", name: "CH0202", cn: "才羽绿（女仆）"},
@@ -288,6 +288,7 @@ const CharacterTag = {
     },
     SAORI: {user: "saori", name: "Saori", cn: "锭前纱织"},
     SAORI_SWIMSUIT: {user: "saori_swimsuit", name: "CH0266", cn: "锭前纱织（泳装）"},
+    SAORI_DRESS: {user: "saori_dress", name: "CH0259", cn: "锭前纱织（礼服）"}, // IMPL Implemented on 2025/04/09
     HIYORI: {user: "hiyori", name: "Hiyori", cn: "槌永日和"},
     HIYORI_SWIMSUIT: {user: "hiyori_swimsuit", name: "CH0269", cn: "槌永日和（泳装）"},
     HIYORI_SWIMSUIT_LIGHT_WEAKENED: {
@@ -306,6 +307,12 @@ const CharacterTag = {
     SAKI_SWIMSUIT: {user: "saki_swimsuit", name: "CH0217", cn: "空井咲（泳装）"},
     MOE: {user: "moe", name: "Moe", cn: "风仓萌"},
     MOE_SWIMSUIT: {user: "moe_swimsuit", name: "CH0216", cn: "风仓萌（泳装）"},
+    // -------------------- Highlander ---------------------- 海兰德
+    // CCC 中央管制中心
+    HIKARI: {user: "hikari", name: "CH0242", cn: "橘光"}, // IMPL implemented on 2025/04/22
+    NOZOMI: {user: "nozomi", name: "CH0243", cn: "橘望"}, // IMPL implemented on 2025/04/22
+    // 货物输送管理部
+    AOBA: {user: "aoba", name: "CH0288", cn: "内海青叶"}, // IMPL implemented on 2025/04/22
     // ------------ Somewhere Outside Kivotos ------------ 联动角色
     // VOCALOID V家
     MIKU: {user: "miku", name: "CH9999", cn: "[联动] 初音未来"},
