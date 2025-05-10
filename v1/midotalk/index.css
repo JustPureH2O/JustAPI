@@ -152,6 +152,7 @@ body:before {
     border-radius: .4em;
     background-color: var(--color-general-background);
     color: #FFFFFF;
+    user-select: none;
 }
 
 .button[data-unselected] {
@@ -179,6 +180,7 @@ body:before {
     background-color: var(--color-general-background);
     color: #FFFFFF;
     transition: background-color ease .2s;
+    user-select: none;
 }
 
 .suitable-button:hover {
@@ -198,6 +200,7 @@ body:before {
     font-weight: 600;
     color: #FFFFFF;
     margin-bottom: .2em;
+    user-select: none;
 }
 
 .status:before {
@@ -215,6 +218,7 @@ body:before {
     font-weight: 600;
     color: #FFFFFF;
     margin-bottom: .2em;
+    user-select: none;
 }
 
 .stat:before {
@@ -269,4 +273,8 @@ img[data-inline] {
     width: 10em;
     height: auto;
     background-color: transparent;
+}
+
+img {
+    user-select: none;
 }
