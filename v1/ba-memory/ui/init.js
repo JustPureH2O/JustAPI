@@ -215,6 +215,7 @@ const CharacterTag = {
     SHIZUKO: {user: "shizuko", name: "Shizuko", cn: "河和静子"},
     SHIZUKO_SWIMSUIT: {user: "shizuko_swimsuit", name: "CH0180", cn: "河和静子（泳装）"},
     PINA: {user: "pina", name: "Pina", cn: "朝比奈菲娜"},
+    PINA_GUIDE: {user: "pina_guide", name: "CH0257", cn: "朝比奈菲娜（导游）"}, // IMPL Implemented on 2025/05/14
     UMIKA: {user: "umika", name: "CH0110", cn: "里滨海夏"},
     // Etiquette Training Society 修行部
     TSUBAKI: {user: "tsubaki", name: "Tsubaki", cn: "春日椿"},
